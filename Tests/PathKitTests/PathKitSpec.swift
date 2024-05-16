@@ -507,6 +507,11 @@ describe("PathKit") {
       let results = try (fixtures + "permissions").children().map { $0.absolute() }.sorted(by: <)
       try expect(paths) == results.sorted(by: <)
     }
+
+      $0.it("can glob nested directories using **") {
+          let paths = fixtures.glob("**/child")
+          try expect(paths) == [fixtures + "directory/subdirectory/child", fixtures + "directory/child"]
+      }
   }
 
   $0.describe("#match") {

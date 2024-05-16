@@ -596,7 +596,7 @@ extension Path {
       free(cPattern)
     }
 
-    let flags = GLOB_TILDE | GLOB_BRACE | GLOB_MARK
+    let flags = GLOB_TILDE | GLOB_BRACE | GLOB_MARK | GLOB_NOESCAPE
     if system_glob(cPattern, flags, nil, &gt) == 0 {
 #if os(Linux)
       let matchc = gt.gl_pathc
